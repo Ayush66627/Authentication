@@ -12,8 +12,12 @@ dotenv.config({
     path: "./env",
 })
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(express.json());
+const corsOptions = {
+  origin: "https://authentication-pp61.onrender.com",
+  credentials: true,
+}
 
 connectDB()
 .then(() => {
